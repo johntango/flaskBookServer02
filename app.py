@@ -38,26 +38,15 @@ books = [
 @app.route("/", methods=["GET"])
 def redirect_get():
     if request.method == "GET":
-        return render_template(
-            "index.html", title="books", books=books
-        )
+        return render_template("index.html", title="books", books=books)
 
 
 @app.route("/books", methods=["GET"])
 def book():
     if request.method == "POST":  # just send user back to index template
-        return render_template(
-            "index.html", title="books", books=books
-<<<<<<< HEAD
-        )
+        return render_template("index.html", title="books", books=books)
     elif request.method == "GET":
-        return render_template(  # we pass books into books.html
-            "books.html", books=books, title="books"
-=======
->>>>>>> 4ca1d7c27843bdf1372cf469c632a6b3f4846c6c
-        )
-    elif request.method == "GET":
-        return jsonify(books)
+        return render_template("books.html", title="books", books=books)
     else:
         return 400  # Bad Request Response
 
